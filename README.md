@@ -17,3 +17,6 @@ JPA entitis mapping test
  2. create-drop
  3. update
  4. none
+ 
+ - hibernate.dialect
+  1. org.hibernate.dialect.MySQL5InnoDBDialect
