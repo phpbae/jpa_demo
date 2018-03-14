@@ -12,16 +12,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@DiscriminatorValue("PAGE")
 public class ConditionalSetting extends MenuSetting {
 
     private Integer year;
     private Integer kPartIdx;
     private Integer pNo;
     private Integer pNoDepth;
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "conditional_setting_grade", joinColumns = @JoinColumn(name = "menu_setting_idx"))
     private List<String> gradeIdx;
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "conditional_setting_christening", joinColumns = @JoinColumn(name = "menu_setting_idx"))
     private List<String> christeningIdx;
     private String gender;

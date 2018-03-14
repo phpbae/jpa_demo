@@ -16,7 +16,7 @@ import java.util.List;
 @DiscriminatorValue("FOLD")
 public class MenuComposite extends Menu implements Serializable {
 
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, targetEntity = MenuLeaf.class, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, targetEntity = MenuLeaf.class, fetch = FetchType.LAZY)
     private List<Menu> child = new ArrayList<>();
 
     public List<Menu> getChild() {

@@ -12,10 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@DiscriminatorValue("CUST")
 public class CustomSetting extends MenuSetting{
 
     private String contents;
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "custom_setting_image_path", joinColumns = @JoinColumn(name = "menu_setting_idx"))
     private List<String> originalResourcePath;
 }

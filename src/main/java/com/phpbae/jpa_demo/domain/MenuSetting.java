@@ -10,8 +10,11 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
-public class MenuSetting {
+//@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "setting_type")
+public abstract class MenuSetting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
